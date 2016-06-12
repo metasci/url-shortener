@@ -15,7 +15,11 @@ mongo.connect(url, function(err, db){
   
   if(err) throw 'Database failed to connect';
   
-  
+  db.createCollection("shortUrls", {
+    capped: true,
+    size: 10000000,
+    max: 10000
+  });
   
   
   routes(app, db);
