@@ -17,8 +17,8 @@ mongo.connect(url, function(err, db){
   
   db.createCollection("shortUrls", {
     capped: true,
-    size: 5000000,
-    max: 5000
+    size: 400000,
+    max: 100
   });
   
   
