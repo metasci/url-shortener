@@ -8,9 +8,8 @@ var app = express();
 app.use('/client', express.static(process.cwd() + '/client'));
 var url = 'mongodb://localhost:27017/myDb';
 
-var uri = "mongodb://nick:url@ds013584.mlab.com:13584/heroku_rstnv79m";
 
-mongo.connect(uri || url, function(err, db){
+mongo.connect(process.env.MONGOLAB_URI || url, function(err, db){
   
   if(err) throw 'Database failed to connect';
   
