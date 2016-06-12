@@ -11,7 +11,7 @@ app.use('/client', express.static(process.cwd() + '/client'));
 
 var url = 'mongodb://localhost:27017/myDb';
 
-mongo.connect(url, function(err, db){
+mongo.connect(process.env.MONGOLAB_URI || url, function(err, db){
   
   if(err) throw 'Database failed to connect';
   
