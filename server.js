@@ -29,12 +29,13 @@ mongo.connect(process.env.MONGOLAB_URI || url, function(err, db){
   
   
   
-  var port = process.env.PORT || 8080;
-  app.listen(port, function() {
-    console.log('listening on port ' + port + '...');
-  });
   
 });
 
 
 
+
+  var port = process.env.PORT || 8080;
+  app.listen(port, function() {
+    console.log('listening on port ' + port + '...');
+  });
