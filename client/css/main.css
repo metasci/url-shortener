@@ -23,3 +23,15 @@ h1 {
 	font-size: 20px;
 	margin: 0 0 10px 0;
 }
+.example {
+	width: 1000px;
+	margin: 50px auto 0 auto;
+}
+
+p {
+	background-color: #ffe6e6;
+	color: #b30000;
+	width: auto;
+	display: inline-block;
+	margin: 2px;
+}
