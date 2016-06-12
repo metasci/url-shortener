@@ -6,7 +6,6 @@ var mongo = require('mongodb').MongoClient;
 
 
 var app = express();
-app.use('/client', express.static(process.cwd() + '/client'));
 
 
 var url = 'mongodb://localhost:27017/myDb';
@@ -14,6 +13,10 @@ var url = 'mongodb://localhost:27017/myDb';
 mongo.connect(process.env.MONGOLAB_URI || url, function(err, db){
   
   if(err) throw 'Database failed to connect';
+  
+  
+  app.use('/client', express.static(process.cwd() + '/client'));
+  
   
   // limit database size
   db.createCollection("shortUrls", {
@@ -28,14 +31,13 @@ mongo.connect(process.env.MONGOLAB_URI || url, function(err, db){
   api(app, db);
   
   
+  var port = process.env.PORT || 8080;
+  app.listen(port, function() {
+    console.log('listening on port ' + port + '...');
+  });
   
   
 });
 
 
 
-
-  var port = process.env.PORT || 8080;
-  app.listen(port, function() {
-    console.log('listening on port ' + port + '...');
-  });
