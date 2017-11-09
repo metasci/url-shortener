@@ -19,7 +19,7 @@ module.exports = function(app, db){
             };
             save(req.url.slice(5), res, urlObj, db);
         }else{
-            res.send('Not A Valid URL!')
+            res.send('Not A Valid URL!');
         }
     });
         
